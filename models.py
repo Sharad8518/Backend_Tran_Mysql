@@ -22,7 +22,7 @@ DB_URL = os.environ.get("FLEE_DATABASE_URL")
 print('==================================================')
 # print(DB_URL)
 base = declarative_base()
-engine = create_engine(DB_URL, pool_recycle=3306, connect_args={'connect_timeout': 60})
+engine = create_engine('mysql+mysqlconnector://admin:UExK0QQ^8iF7URo3kL2!nAS@fleetosdb.cnwc8oec8lin.ap-southeast-1.rds.amazonaws.com:3306/fleetosdb', pool_recycle=3306, connect_args={'connect_timeout': 60})
 # print(engine)
 print('**************************************************')
 

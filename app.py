@@ -1738,9 +1738,8 @@ api.add_resource(UpdateSupervisor,'/supervisor/update')
 api.add_resource(AddCities,'/city/name')
 
 api.add_resource(GeneratePdf,"/transporter/reciept")
-APP_HOST = os.environ.get("APP_HOST")
-# print(APP_HOST)
-APP_PORT= os.environ.get("APP_PORT")
+APP_HOST = os.environ.get("APP_HOST", "127.0.0.1")
+APP_PORT = int(os.environ.get("APP_PORT", 5000))
 
 if __name__ == '__main__':
 	app.run(debug=True, host=APP_HOST, port=APP_PORT)

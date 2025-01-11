@@ -4,9 +4,9 @@ import sys
 import pandas as pd
 import MySQLdb
 firebase = "AAAAzaP4EYE:APA91bGf9U0El34AEpy5rT5l6VgELVLAEuBxfkO8s-aJPe6_KQT9Zv3-i169eUGf22XHoQOc777xBq6r2CbKAADiXrWOABIbU6mUxRDkIIVRlj5mW8s5Y44G6cme6KahIuHiV3hh33FH"
-db = MySQLdb.connect(host="localhost",    # your host, usually localhost
-                     user="fleetos",         # your username
-                     passwd="UExK0QQ^8iF7URo3kL2!nAS",  # your password
+db = MySQLdb.connect(host="fleetosdb.cnwc8oec8lin.ap-southeast-1.rds.amazonaws.com",    # your host, usually localhost
+                     user="admin",         # your username
+                     passwd="UExK0QQ^8iF7URo3kL2!nAS",  # your password   tran851890
                      db="fleetosdb")        # name of the data base
 
 # db = MySQLdb.connect(host="localhost",    # your host, usually localhost
