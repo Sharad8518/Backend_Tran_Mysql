@@ -95,9 +95,12 @@ def dbRegister( email, password, role,uid,userName, session=None):
 			session.add(insertToken)
 			session.commit()
 			if role!="consignee":
-				verifyUrl = os.environ.get("IP_URL") + 'verify/account-confirmation?email=' + email + '&token=' + token
-			# print("verifyurl:",verifyUrl)
+				verifyUrl = f"/verify/account-confirmation?email={email}&token={token}"
+                    #  print("verifyurl:",verifyUrl)
+				# verifyUrl = os.environ.get("http://127.0.0.1:5000") + 'verify/account-confirmation?email=' + email + '&token=' + token
 
+            
+                  
 				try:
 					# create Mail object and populate
 					message = Mail(

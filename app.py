@@ -63,14 +63,16 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 
 jwt = JWTManager(app)
 
-#service account credentials
-cred = credentials.Certificate('firebase-sdk.json')
- 
-# Initialize the app with a service account, granting admin privileges
-firebase_admin.initialize_app(cred, {
-    'databaseURL': app.databaseURL
-})
 
+#service account credentials
+try:
+    if not firebase_admin._apps:
+        cred = credentials.Certificate("./firebase-sdk.json")  # Ensure this file exists
+        firebase_admin.initialize_app(cred, {
+            'databaseURL': 'https://tran-app-bded3-default-rtdb.firebaseio.com'  # Update with your actual database URL
+        })
+except Exception as e:
+    print(f"Error initializing Firebase: {str(e)}")
 #delete all firebase users
 # for user in auth.list_users().iterate_all():
 #     print("Deleting user " + user.uid)
@@ -110,7 +112,7 @@ class Register(Resource):
 		parser.add_argument('pincode',type=str, required=False)
 		parser.add_argument('location',type=str, required=False)
 		parser.add_argument('gstNumber',type=str,help='Missing param: gst number', required=False)
-		parser.add_argument('panNumber',type=str, help='Missing param: pan number',required=True)
+		parser.add_argument('panNumber',type=str, help='Missing param: pan number',required=False)
 
 		args = parser.parse_args()
 
@@ -152,7 +154,8 @@ class Register(Resource):
 			
 			# Encode password
 			# password = sha256.hash("password")
-			password = sha256_crypt.encrypt(password)
+			password = sha256_crypt.hash(password)
+			# password = sha256_crypt.encrypt(password)
 			
 
 			exists = dbCheckUserByEmail(email)
@@ -740,7 +743,9 @@ class addConsigneeByConsignor(Resource):
 			
 			# Encode password
 			# password = sha256.hash("password")
-			password = sha256_crypt.encrypt(password)
+			password = sha256_crypt.hash(password)
+
+			# password = sha256_crypt.encrypt(password)
 
 			exists = dbCheckUserByEmail(email)
 

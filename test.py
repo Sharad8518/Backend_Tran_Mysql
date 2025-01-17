@@ -4,15 +4,15 @@ import sys
 import pandas as pd
 import MySQLdb
 firebase = "AAAAzaP4EYE:APA91bGf9U0El34AEpy5rT5l6VgELVLAEuBxfkO8s-aJPe6_KQT9Zv3-i169eUGf22XHoQOc777xBq6r2CbKAADiXrWOABIbU6mUxRDkIIVRlj5mW8s5Y44G6cme6KahIuHiV3hh33FH"
-db = MySQLdb.connect(host="fleetosdb.cnwc8oec8lin.ap-southeast-1.rds.amazonaws.com",    # your host, usually localhost
-                     user="admin",         # your username
-                     passwd="UExK0QQ^8iF7URo3kL2!nAS",  # your password   tran851890
+db = MySQLdb.connect(host="localhost",    # your host, usually localhost
+                     user="fleetos",         # your username
+                     passwd="fleetos@1234",  # your password   tran851890
                      db="fleetosdb")        # name of the data base
 
 # db = MySQLdb.connect(host="localhost",    # your host, usually localhost
-#                     user="root",         # your username
-#                     passwd="root12345",  # your password
-#                     db="tran")
+#                     user="tran",         # your username
+#                     passwd="tran1234",  # your password
+#                     db="trandb")
 
 def sendnotification():
 	try:
